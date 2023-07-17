@@ -65,7 +65,7 @@ public class Main {
 
 
 
-        //---EJERCICIO 4 ARRAYS---
+        /*//---EJERCICIO 4 ARRAYS---
         // 3 vectores
         //nombre - temperatura minima - temp maxima
 
@@ -116,7 +116,113 @@ public class Main {
         System.out.println("\nLa ciudad con menor temperatura es: "+ nombreTempMin+ " con una " +
                 "temperatura de: "+ menor);
         System.out.println("La ciudad con mayor temperatura es: "+ nombreTempMax+ " con una " +
-                "temperatura de: "+ mayor);
+                "temperatura de: "+ mayor);*/
+
+
+
+
+        /*//---EJERCICIO 5 ARRAYS---
+        //Objetivo: Rellenar matriz con numeros 5
+
+        //creacion de matriz
+        int[][] matriz = new int[4][5];
+
+        //Recorrer matriz y guardar datos
+        for (int f=0; f<4; f++){
+            for (int c=0; c<5; c++){
+
+                matriz[f][c] = 5;//Significa: que en la fila que estoy y en la columna que estoy agregale un 5.
+            }
+        }
+
+        //Mostrar por pantalla
+        for (int f=0; f<4; f++){
+            System.out.printf("[");
+            for (int c=0; c<5; c++){
+                System.out.printf(" "+ matriz[f][c]+" ");
+            }
+            System.out.printf("]\n");
+        }
+         */
+
+
+
+        //---EJERCICIO 6Ultimo ARRAYS---
+
+        //Pasos: Primero crear el guardado de asientos con la variable bandera o flag
+        //2_ crear ingresos por teclado para q el usuario compre el pasaje
+        //3_ hacer funcion q checkee si hay asientos disponibles
+
+        //creacion Matriz
+        int[][] vuelos = new int[6][3];
+
+        //Variables
+        String bandera;
+        int localidad;
+        int horario;
+        int asientos;
+
+
+        //Asignacion de variables
+        bandera = "";
+        localidad = 0;
+        horario = 0;
+        asientos = 0;
+
+        //Scanners
+        Scanner teclado = new Scanner(System.in);
+
+
+        //main
+        for (int f=0; f<6; f++){
+            for (int c=0; c<3; c++){
+                System.out.println("Ingrese la cantidad de asientos para el destino: "+ f +" en el" +
+                        " horario: "+ c);
+                vuelos[f][c] = teclado.nextInt();
+
+            }
+        }
+
+        Scanner teclado2 = new Scanner(System.in);//localidad
+        Scanner teclado3 = new Scanner(System.in);//horario
+        Scanner teclado4 = new Scanner(System.in);//asientos
+        Scanner teclado5 = new Scanner(System.in);
+
+        while(!bandera.equalsIgnoreCase("finish")){
+
+            System.out.println("\n --Menu para reserva de Asientos-- \n");
+            System.out.println("Ingrese el numero del Destino: ");
+            localidad = teclado2.nextInt();
+            System.out.println("Ingrese numero de horario: ");
+            horario = teclado3.nextInt();
+            System.out.println("Ingrese cantidad de asientos: ");
+            asientos = teclado4.nextInt();
+
+            if (vuelos[localidad][horario] >= asientos) {
+                vuelos[localidad][horario] = vuelos[localidad][horario] - asientos;
+                System.out.println("La reserva fue realizada con exito!");
+            }
+            else{
+                System.out.println("La reserva no se pudo realizar, no quedan asientos.");
+            }
+
+            System.out.println("Quieres realizar otra compra?, si no es asi ingrese " +
+                    "finish para terminar. o cualquier valor para seguir");
+            bandera = teclado5.next();
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
